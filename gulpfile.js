@@ -14,13 +14,13 @@ var autoprefix = new lessAutoprefix({browsers: ['last 2 versions'], cascade: fal
 
 // 删除 css
 gulp.task('clean:css', function () {
-    del.sync('./assets/css/*.css');
+    del.sync('./src/assets/css/*.css');
 })
 
 // 启动本地服务
 gulp.task('connect', function () {
     connect.server({
-        root: ['src/'],
+        root: ['src/', './'],
         port: 8080,
         livereload: true
     });
@@ -36,32 +36,32 @@ gulp.task('connect:build', function () {
 
 // 编译 less
 gulp.task('less', function () {
-    return gulp.src('./assets/less/*.less')
+    return gulp.src('./src/assets/less/*.less')
         .pipe(sourcemaps.init())
         .pipe(less({
             plugins: [autoprefix]
         }))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./assets/css/'))
+        .pipe(gulp.dest('./src/assets/css/'))
 	    .pipe(connect.reload());
 });
 
 // 处理 js
 gulp.task('script', function () {
-    return gulp.src('./assets/js/*.js')
+    return gulp.src('./src/assets/js/*.js')
         .pipe(connect.reload());
 });
 
 gulp.task('html', function () {
-    return gulp.src(['./views/**/*.html'])
+    return gulp.src(['./src/*.html', './src/views/**/*.html'])
         .pipe(connect.reload());
 })
 
 // 监控文件
 gulp.task('watch', function () {
-    gulp.watch('./assets/less/*.less', ['less']);
-    gulp.watch(['./*.html', './views/**/*.html'], ['html']);
-    gulp.watch(['./assets/js/**/*.js'], ['script']);
+    gulp.watch('./src/assets/less/*.less', ['less']);
+    gulp.watch(['./src/*.html', './src/views/**/*.html'], ['html']);
+    gulp.watch(['./src/assets/js/**/*.js'], ['script']);
 });
 
 gulp.task('clean:build', function () {
@@ -69,15 +69,12 @@ gulp.task('clean:build', function () {
 });
 
 gulp.task('copy', function () {
-    gulp.src('./assets/fonts/**')
-        .pipe(gulp.dest('./dist/assets/fonts/'));
-
-    gulp.src('./assets/images/**')
+    gulp.src('./src/assets/images/**')
         .pipe(gulp.dest('./dist/assets/images/'));
 });
 
 gulp.task('minify', ['clean:build', 'less'], function () {
-    gulp.src('views/**/*.html')
+    gulp.src('./src/views/**/*.html')
         .pipe(htmlmin({
             collapseWhitespace: true
         }))
