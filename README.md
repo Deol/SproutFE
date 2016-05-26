@@ -15,12 +15,11 @@
 +- node_modules      // 项目依赖，引入的第三方库或框架
 +- src               // 开发目录
 |   +- index.html    // 入口文件
-|   +- sidebar.html
 |   +- assets		 // 自己的样式和脚本
 |		+- css/
 |		+- js/
 |		+- images/
-|   +- less
+|       +- less
 +- dist              // 产出目录
 |   +- index.html
 |   +- public
@@ -41,4 +40,3 @@
 
 ##5. 发布
 * 进入项目根目录，在终端中运行 `gulp build`。
-
