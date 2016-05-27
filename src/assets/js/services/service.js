@@ -25,11 +25,16 @@ angular.module('Sprout.service', [])
         return $http.post(url, data);
     }
 
+    function getUserInfo() {
+        return JSON.parse(sessionStorage.getItem('user'));
+    }
+
     return {
         login: login,
         logout: logout,
         register: register,
-        setUserInfo: setUserInfo
+        setUserInfo: setUserInfo,
+        getUserInfo: getUserInfo
     };
 })
 .service('noteService', function ($http, urlConfig) {

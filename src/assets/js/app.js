@@ -1,6 +1,8 @@
 angular.module('Sprout',
         [
-          'ui.router','mobile-angular-ui',
+          'ui.router', 'mobile-angular-ui',
+          'user', 'note', 'explore', 'cultivation',
+          'Sprout.service'
         ]
     )
     .run(function ($rootScope) {
@@ -15,7 +17,7 @@ angular.module('Sprout',
             // 1 为 iOS 2 为 android
             $rootScope.systemType = 1;
             document.addEventListener("click", function (e) {
-            var elem = e.target;
+                var elem = e.target;
                 if (elem.tagName && elem.tagName === "A") {
                     e.preventDefault();
                     window.location.href = elem.href;
@@ -43,9 +45,10 @@ angular.module('Sprout',
             setPreviousState: setPreviousState
         }
      })
+    .config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise('/note/list');
+    })
     .controller('mainController', function ($rootScope, $scope, SharedState, pageState, account) {
-
-        console.log(1);
 
         $rootScope.$on('$stateChangeStart', function (event, to, toParams, from, fromParams) {
             $rootScope.loading = true;
@@ -65,13 +68,13 @@ angular.module('Sprout',
             }
         });
 
-        $scope.userInfo = {};
-
         SharedState.initialize($rootScope, 'isLogin');
         if (sessionStorage.getItem('session_id')) {
             SharedState.setOne('isLogin', true);
             $scope.userInfo = account.getUserInfo();
         }
+
+        $scope.userInfo = {};
 
         $scope.$on('mobile-angular-ui.state.changed.isLogin', function (event, newValue, oldValue) {
             $scope.userInfo = newValue ? account.getUserInfo() : {};
