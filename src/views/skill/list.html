@@ -1,0 +1,45 @@
+<div ui-content-for="navbarTopContent">
+    <div class="navbar navbar-app navbar-absolute-top">
+        <div class="btn-group pull-left">
+            <div class="btn sidebar-toggle" ui-toggle="uiSidebarLeft">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+        <div class="navbar-brand">
+            <span class="ng-scope">技能树</span>
+        </div>
+    </div>
+</div>
+<div class="section skill">
+    <ui-state id="activeTab" default="1"></ui-state>
+    <ul class="nav nav-tabs row skill-tabs">
+        <li ui-class="{'active': activeTab == 1}" class="col-xs-3 active">
+            <a ui-set="{'activeTab': 1}">核心技术</a>
+        </li>
+        <li ui-class="{'active': activeTab == 2}" class="col-xs-3">
+            <a ui-set="{'activeTab': 2}">拓展技术</a>
+        </li>
+        <li ui-class="{'active': activeTab == 3}" class="col-xs-3">
+            <a ui-set="{'activeTab': 3}">工程研发</a>
+        </li>
+        <li ui-class="{'active': activeTab == 4}" class="col-xs-3">
+            <a ui-set="{'activeTab': 4}">编程思想</a>
+        </li>
+    </ul>
+    <!-- uiIf: activeTab == 1 -->
+    <div ui-if="activeTab == 1" class="ng-scope">
+        
+    </div>
+    <!-- uiIf: activeTab == 2 -->
+    <div ui-if="activeTab == 2" class="ng-scope">
+        
+    </div>
+    <!-- uiIf: activeTab == 3 -->
+    <div ui-if="activeTab == 3" class="ng-scope">
+        
+    </div>
+    <!-- uiIf: activeTab == 4 -->
+    <div ui-if="activeTab == 4" class="ng-scope">
+        
+    </div>
+</div>

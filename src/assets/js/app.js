@@ -1,8 +1,8 @@
 angular.module('Sprout',
         [
           'ui.router', 'mobile-angular-ui',
-          'user', 'note', 'explore', 'cultivation',
-          'Sprout.service'
+          'user', 'skill', 'note', 'explore', 'cultivation',
+          'Sprout.service', 'Sprout.directive'
         ]
     )
     .run(function ($rootScope) {
@@ -46,7 +46,7 @@ angular.module('Sprout',
         }
      })
     .config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/note/list');
+        $urlRouterProvider.otherwise('/skill/list');
     })
     .controller('mainController', function ($rootScope, $scope, SharedState, pageState, account) {
 

@@ -10,8 +10,13 @@ angular.module('explore', [])
         controller: 'exploreController',
         controllerAs: 'explore'
     })
+    .state('explore.select', {
+        url: '/select',
+        templateUrl: 'views/explore/select.html',
+        controller: 'exploreController',
+        controllerAs: 'explore'
+    })
 })
 .controller('exploreController', function ($rootScope, $scope, $timeout, exploreService) {
-
     
 });

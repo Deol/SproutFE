@@ -1,3 +1,197 @@
+@background-color: #fff;
+@title-color: #595959;
+@content-color: #828282;
+@border-color: #DAEED2;
+@time-color: #88C673;
+@btn-color: #78C008;
+@tab-color: #6CBB4E;
+
+.skill {
+    .skill-tabs {
+        border: 0;
+        margin: 0;
+        border-radius: 5px;
+
+        li {
+            padding: 0;
+            background-color: @background-color;
+
+            a {
+                margin: 0;
+                padding: 9px 16px;
+                color: #6FBC53;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .active {
+            border: 0;
+
+            a {
+                color: #fff;
+                border-radius: 5px;
+                background-color: @tab-color;
+            }
+        }
+    }
+}
+
 .note {
+    position: relative;
+    min-height: 100%;
+
+    .time-line {
+        position: absolute;
+        width: 3px;
+        min-height: 100%;
+        left: 18px;
+        background-color: #E2E7E9;
+    }
+
+    .note-btn {
+        position: fixed;
+        bottom: 50px;
+        right: 40px;
+        width: 50px;
+        height: 50px;
+        border: 0;
+        border-radius: 50px;
+        background-color: @btn-color;
+        color: #fff;
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .note-area {
+        .list-group-item {
+            padding-left: 30px;
+
+            &:first-child {
+                padding-top: 40px;
+            }
+        }
+
+        .note-time {
+            border: 0;
+            font-size: 14px;
+            color: @time-color;
+            padding: 10px 0 0 30px;
+            background-color: transparent;
+
+            &:before {
+                content: '';
+                height: 3px;
+                width: 3px;
+                display: block;
+                position: absolute;
+                margin-left: -12px;
+                margin-top: 8px;
+                border-radius: 3px;
+                background-color: @time-color;
+            }
+        }
+
+        .note-item {
+            margin: 10px 0;
+            border: 0;
+            color: @title-color;
+        }
+    }
+
+    .edit-area {
+        position: absolute;
+        width: 100%;
+        min-height: 100%;
+        font-size: 14px;
+        line-height: 24px;
+        padding: 15px 10px;
+    }
+}
+
+.cultivation {
+    .panel {
+        margin: 20px 10px 0;
+        padding: 0;
+        border: 0;
+        border-radius: 3px;
+
+        .panel-heading {
+            padding: 10px 20px;
+            color: @title-color;
+            background-color: @background-color;
+            border-bottom: 2px solid @border-color;
+        }
+
+        .panel-body {
+            padding: 20px;
+            color: @content-color;
+            font-size: 14px;
+        }
+    }
+}
+
+.explore {
+    margin: 10px 10px 0 10px;
     
+    .explore-item {
+        margin-bottom: 10px;
+
+        &:nth-child(2n) {
+            padding: 0 0 0 5px;
+        }
+
+        &:nth-child(2n-1) {
+            padding: 0 5px 0 0;
+        }
+
+        .explore-img {
+            height: 100px;
+            width: 100%;
+            border: 0;
+            background-color: #F66F6F; // todo
+        }
+
+        .explore-title {
+            color: #232323;
+            padding: 0 10px;
+            line-height: 30px;
+            border-bottom: 1px solid @border-color;
+            background-color: @background-color;
+        }
+
+        .explore-content {
+            padding: 5px 10px 10px;
+            background-color: @background-color;
+            color: @content-color;
+        }
+    }
+
+    .select-wrap {
+        margin-top: 5px;
+
+        .select-title {
+            color: #A8A9AA;
+            line-height: 40px;
+        }
+
+        .select-content {
+            padding: 0;
+            border: 1px solid @border-color;
+            background-color: @background-color;
+
+            li {
+                cursor: pointer;
+                line-height: 40px;
+                border-bottom: 1px solid @border-color;
+            
+                &:nth-child(2n-1) {
+                    border-right: 1px solid @border-color;
+                }
+
+            }
+        }
+    }
 }

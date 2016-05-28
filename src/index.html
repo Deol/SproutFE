@@ -18,13 +18,14 @@
     <!-- Sidebars -->
     <div class="sidebar sidebar-left">
         <div class="scrollable">
-            <h1 class="scrollable-header app-name">Sprout</h1>  
+            <h3 class="scrollable-header user-name">Aeo</h3>
             <div class="scrollable-content">
                 <div class="list-group" ui-turn-off='uiSidebarLeft'>
-                    <a class="list-group-item" href="#/techtree/list">技能树</a>
+                    <a class="list-group-item" href="#/skill/list">技能树</a>
                     <a class="list-group-item" href="#/note/list">便签</a>
                     <a class="list-group-item" href="#/cultivation/list">自我修养</a>
-                    <a class="list-group-item" href="#/explore/list">自我探索</a>
+                    <a class="list-group-item" href="#/explore/list">发现推荐</a>
+                    <a class="list-group-item" href="#/user/list">个人资料</a>
                 </div>
             </div>
         </div>
@@ -47,7 +48,9 @@
     <!--endbuild-->
     <!--build:js /assets/js/index.js-->
     <script src="assets/js/services/service.js"></script>
+    <script src="assets/js/directives/utils.js"></script>
     <script src="assets/js/controllers/user.js"></script>
+    <script src="assets/js/controllers/skill.js"></script>
     <script src="assets/js/controllers/note.js"></script>
     <script src="assets/js/controllers/explore.js"></script>
     <script src="assets/js/controllers/cultivation.js"></script>
