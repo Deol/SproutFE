@@ -1,0 +1,26 @@
+
+.icon {
+  background-image: url('../images/sprite.png');
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .icon {
+    background-image: url('../images/sprite@2x.png');
+    background-size: 79px 237px;
+  }
+}
+
+.icon-line {
+  background-position: -0px -0px;
+  width: 79px;
+  height: 79px;
+}
+.icon-slash {
+  background-position: -0px -79px;
+  width: 79px;
+  height: 79px;
+}
+.icon-triangle {
+  background-position: -0px -158px;
+  width: 79px;
+  height: 79px;
+}

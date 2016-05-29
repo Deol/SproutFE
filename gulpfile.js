@@ -8,6 +8,7 @@ var uglify = require('gulp-uglify');
 var usemin = require('gulp-usemin');
 var rev = require('gulp-rev');
 var gulpif = require('gulp-if');
+var sprity = require('sprity');
 var sourcemaps = require('gulp-sourcemaps');
 var lessAutoprefix = require('less-plugin-autoprefix');
 var autoprefix = new lessAutoprefix({browsers: ['last 2 versions'], cascade: false});
@@ -33,6 +34,20 @@ gulp.task('connect:build', function () {
         livereload: true
     });
 })
+
+// 合成雪碧图
+gulp.task('merge', function () {
+  return sprity.src({
+    src: './src/assets/images/chips/*@2x.{png,jpg}',
+    style: './sprite.css',
+    dimension: [{
+        ratio: 1, dpi: 72
+    }, {
+        ratio: 2, dpi: 192
+    }]
+  })
+  .pipe(gulpif('*.png', gulp.dest('./src/assets/images/'), gulp.dest('./src/assets/css/')))
+});
 
 // 编译 less
 gulp.task('less', function () {

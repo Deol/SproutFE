@@ -4,17 +4,17 @@ angular.module('user', [])
         url: '/user',
         templateUrl: 'views/user/index.html'
     })
-    .state('user.details', {
-        url: '/details',
+    .state('user.detail', {
+        url: '/detail',
         controller: 'userController',
-        templateUrl: 'views/user/user.html'
+        templateUrl: 'views/user/detail.html'
     })
-    .state('login', {
+    .state('user.login', {
         url: '/login',
         controller: 'loginController',
         templateUrl: 'views/user/login.html'
     })
-    .state('register', {
+    .state('user.register', {
         url: '/register',
         controller: 'registerController',
         templateUrl: 'views/user/register.html'

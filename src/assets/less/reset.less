@@ -19,13 +19,24 @@ button {cursor:pointer;}
 a,button,input,img{-webkit-touch-callout:none;outline:none;-webkit-user-select:none;}
 /* 去除点击时产生的半透明灰色背景 */
 a,button,input,div{-webkit-tap-highlight-color:rgba(0,0,0,0);}
-html,body{ height:100%; width:100%; position: relative; overflow: hidden; background: #ebece4;}
+html,body{min-height:100%;width:100%;position:relative;background:#ebece4;}
 
 /* public */
-
 i { color: #fff; }
-.btn { background-color: #78c008; }
-.app-content, .section { min-height: 100%; overflow: auto; background-color: #f0f5f7; }
+.btn {
+    border: 0;
+    background-color: #6CBB4E;
+
+    &:focus {
+        background-color: #78C008;
+    }
+}
+.app-content, .section { 
+    width: 100%;
+    min-height: 100%;
+    overflow: auto;
+    background-color: #f0f5f7;
+}
 
 .navbar {
     background-color: #6cbb4e;
@@ -36,6 +47,14 @@ i { color: #fff; }
         padding: 0;
         font-size: 14px;
         line-height: 48px;
+    
+        .icon-logo {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            transform: translateY(6px);
+            background-image: url('../images/logo.png');
+        }
     }
 
     .fa {
@@ -43,21 +62,44 @@ i { color: #fff; }
     }
 
     .pull-right {
-        font-size: 14px;
-        line-height: 48px;
-        padding: 0 10px;
-        cursor: pointer;
+        span {
+            font-size: 14px;
+            line-height: 48px;
+            padding: 0 10px;
+            display: inline-block;
+            cursor: pointer;    
+        }
     }
 }
 
 .sidebar-left {
-    width: 180px;
+    width: 170px;
     background-color: #333;
+
+    .background-name {
+        position: absolute;
+        color: #4D4D4D;
+        font-size: 120px;
+        left: -20px;
+        top: 70px;
+        z-index: -10;
+    }
 
     .scrollable-header {
         margin-top: 100px;
         padding: 0 0 30px 15px;
         color: #F6F6F6;
+    }
+
+    //todo
+    .login-link {
+        padding: 0 0 30px 15px;
+        color: #F6F6F6;
+        font-size: 16px;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
 
     .scrollable-content {
@@ -83,5 +125,11 @@ i { color: #fff; }
 }
 
 .sidebar-left-in .app {
-    transform: translate(180px, 0);
+    transform: translate(170px, 0);
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-logo {
+        background-image: url('../images/logo@2x.png');
+    }
 }

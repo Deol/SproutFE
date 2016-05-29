@@ -24,7 +24,8 @@
     "gulp-uglify": "^1.4.1",
     "gulp-usemin": "^0.3.15",
     "gulp-useref": "^3.0.0",
-    "less-plugin-autoprefix": "^1.5.1"
+    "less-plugin-autoprefix": "^1.5.1",
+    "sprity": "^1.0.8"
   },
   "dependencies": {
     "angular": "^1.5.5",
