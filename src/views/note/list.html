@@ -17,19 +17,9 @@
     <div class="time-line"></div>
     <button class="note-btn" ui-sref="note.edit()">+</button>
     <ul class="list-group note-area"> 
-        <li class="list-group-item note-time">2016.05.24</li>
-        <li class="list-group-item note-item">
-            今天学了很多，休息的时候玩了下，也拿到了很多杯。
-        </li>
-        <li class="list-group-item note-item">
-            今天学了很多，休息的时候玩了下，也拿到了很多杯。
-        </li>
-        <li class="list-group-item note-time">2016.05.24</li>
-        <li class="list-group-item note-item">
-            今天学了很多，休息的时候玩了下，也拿到了很多杯。
-        </li>
-        <li class="list-group-item note-item">
-            今天学了很多，休息的时候玩了下，也拿到了很多杯。
+        <li class="list-group-item" ng-repeat="note in noteList track by $index">
+            <p class="note-time" ng-if="note.edit_time">{{note.edit_time}}</p>
+            <p class="note-item">{{note.content}}</p>
         </li>
     </ul>
 </div>

@@ -9,24 +9,20 @@
             </div>
         </div>
         <div class="navbar-brand">
-            <span class="ng-scope">HTML</span>
+            <span class="ng-scope">{{skillDetail.title}}</span>
         </div>
     </div>
 </div>
 <div class="section skill">
     <div class="list-group skill-detail">
-        <h4 class="skill-name">HTML</h4>
+        <h4 class="skill-name">{{skillDetail.title}}</h4>
         <p class="detail-title">简介</p>
-        <p class="detail-content">超文本标记语言，标准通用标记语言下的一个应用。
-“超文本”就是指页面内可以包含图片、链接，甚至音乐、程序等非文字元素。超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body），其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容。</p>
+        <p class="detail-content">{{skillDetail.intro}}</p>
         <p class="detail-title">拓展</p>
-        <p class="detail-content">Jade、Slim、语义化</p>
+        <p class="detail-content">{{skillDetail.expand}}</p>
         <p class="detail-title">书籍推荐</p>
         <ul class="book-list">
-            <li class="book-item">《Head First HTML》</li>
-            <li class="book-item">《Head First HTML》</li>
-            <li class="book-item">《Head First HTML》</li>
-            <li class="book-item">《Head First HTML》</li>
+            <li class="book-item" ng-repeat="book in bookList track by $index">{{book}}</li>
         </ul>
     </div>　
 </div>

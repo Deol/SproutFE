@@ -28,14 +28,29 @@ angular.module('user', [])
     var previous = pageState.getPreviousState() || [];
     var previousState = previous[0];
 
+    $scope.user = {
+        phone: '',
+        passwd: ''
+    }
+
     $scope.login = function () {
         var data = {
-            
+            phone: $scope.user.phone,
+            passwd: $scope.user.passwd
         }
-        account.login(data).then(function (response) {
-            
-        }, function (error) {
-
+        account.login(data).then(function (res) {
+            if (res.data.code === 1) {
+                account.setUserInfo(res.data.data);
+                // 登录成功，返回之前的状态
+                if (previousState) {
+                    return previousState.params ? $state.go(previousState.to, previousState.params) : $state.go(previousState.to);
+                }
+                else {
+                    $state.go('skill.list');
+                }
+            } else {
+                alert(response.data.msg);
+            }
         });
     }
 })

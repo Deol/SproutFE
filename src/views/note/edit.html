@@ -9,10 +9,10 @@
             </div>
         </div>
         <div class="btn-group pull-right">
-            <span>完成</span>
+            <span ng-click="addNote()">完成</span>
         </div>
     </div>
 </div>
 <div class="note">
-    <textarea class="edit-area"></textarea>
+    <textarea class="edit-area" ng-model="newNote"></textarea>
 </div>

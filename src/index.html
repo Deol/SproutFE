@@ -19,16 +19,16 @@
     <!-- Sidebars -->
     <div class="sidebar sidebar-left">
         <div class="scrollable">
-            <p class="background-name">Aeo</p>
-            <a class="login-link" href="#/user/login" ui-turn-off='uiSidebarLeft'>登录</a>
-            <h3 class="scrollable-header user-name">Aeo</h3>
+            <p class="background-name">{{userInfo.nick_name || 'Sprout'}}</p>
+            <a class="login-link" href="#/user/login" ui-turn-off='uiSidebarLeft' ng-hide="isLogin">登录</a>
+            <h3 class="scrollable-header user-name" ng-show="isLogin">{{userInfo.nick_name}}</h3>
             <div class="scrollable-content">
                 <div class="list-group" ui-turn-off='uiSidebarLeft'>
                     <a class="list-group-item" href="#/skill/list">技能树</a>
                     <a class="list-group-item" href="#/note/list">便签</a>
                     <a class="list-group-item" href="#/cultivation/list">自我修养</a>
                     <a class="list-group-item" href="#/explore/list">发现推荐</a>
-                    <a class="list-group-item" href="#/user/detail">个人资料</a>
+                    <a class="list-group-item" href="#/user/detail" ng-if="isLogin">个人资料</a>
                 </div>
             </div>
         </div>

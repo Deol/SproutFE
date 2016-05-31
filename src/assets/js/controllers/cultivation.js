@@ -13,5 +13,9 @@ angular.module('cultivation', [])
 })
 .controller('cultivationController', function ($rootScope, $scope, $timeout, cultivationService) {
 
-    
+    $scope.infoList = [];
+
+    cultivationService.getCultivationInfo().then(function (res) {
+        $scope.infoList = res.data.data;
+    })
 });

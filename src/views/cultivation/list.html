@@ -14,20 +14,8 @@
     </div>
 </div>
 <ul class="cultivation">
-    <li class="panel panel-default">
-        <h4 class="panel-heading">移动混合应用</h4>
-        <p class="panel-body">ionic封装了cordova和angular，并辅助以ngCordova来封装一些和Cordova插件。</p>
-    </li>
-    <li class="panel panel-default">
-        <h4 class="panel-heading">移动混合应用</h4>
-        <p class="panel-body">ionic封装了cordova和angular，并辅助以ngCordova来封装一些和Cordova插件。</p>
-    </li>
-    <li class="panel panel-default">
-        <h4 class="panel-heading">移动混合应用</h4>
-        <p class="panel-body">ionic封装了cordova和angular，并辅助以ngCordova来封装一些和Cordova插件。</p>
-    </li>
-    <li class="panel panel-default">
-        <h4 class="panel-heading">移动混合应用</h4>
-        <p class="panel-body">ionic封装了cordova和angular，并辅助以ngCordova来封装一些和Cordova插件。</p>
+    <li class="panel panel-default" ng-repeat="info in infoList track by $index">
+        <h4 class="panel-heading">{{info.title}}</h4>
+        <p class="panel-body">{{info.content}}</p>
     </li>
 </ul>

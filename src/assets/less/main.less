@@ -57,23 +57,28 @@
 
             &:nth-child(4n+1) {
                 .icon {
+                    background-position: -0px -0px;
                     background-color: #0EA3F7;
                 }
             }
 
             &:nth-child(4n+2) {
                 .icon {
+                    background-position: -0px -79px;
                     background-color: #FAAA17;
                 }
             }
 
             &:nth-child(4n+3) {
                 .icon {
+                    background-position: -0px -158px;
                     background-color: #DB2B2C;
                 }
             }
 
             .icon {
+                width: 79px;
+                height: 79px;
                 display: block;
                 margin: auto;
                 color: #fff;
@@ -147,6 +152,7 @@
         width: 50px;
         height: 50px;
         border: 0;
+        z-index: 9999;
         border-radius: 50px;
         background-color: @btn-color;
         color: #fff;
@@ -162,10 +168,14 @@
 
     .note-area {
         .list-group-item {
-            padding-left: 30px;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
 
             &:first-child {
-                padding-top: 40px;
+                margin-top: 0;
+                padding-top: 30px;
             }
         }
 
@@ -173,7 +183,7 @@
             border: 0;
             font-size: 14px;
             color: @time-color;
-            padding: 10px 0 0 30px;
+            padding: 10px 0 5px 30px;
             background-color: transparent;
 
             &:before {
@@ -182,17 +192,20 @@
                 width: 3px;
                 display: block;
                 position: absolute;
-                margin-left: -12px;
-                margin-top: 8px;
+                margin: 8px 0 0 -12px;
                 border-radius: 3px;
                 background-color: @time-color;
             }
         }
 
         .note-item {
-            margin: 10px 0;
-            border: 0;
+            width: 100%;
+            display: block;
+            font-size: 14px;
+            margin-bottom: 10px;
+            padding: 8px 30px;
             color: @title-color;
+            background-color: #fff;
         }
     }
 
@@ -231,39 +244,36 @@
 
 .explore {
     margin: 10px 10px 0 10px;
-    
-    .explore-item {
-        margin-bottom: 10px;
 
-        &:nth-child(2n) {
-            padding: 0 0 0 5px;
-        }
+    .explore-row {
+        padding: 0 5px;
 
-        &:nth-child(2n-1) {
-            padding: 0 5px 0 0;
-        }
+        .explore-item {
+            margin-bottom: 10px;
 
-        .explore-img {
-            height: 100px;
-            width: 100%;
-            border: 0;
-            background-color: #F66F6F; // todo
-        }
+            .explore-img {
+                height: 100px;
+                width: 100%;
+                border: 0;
+                background-color: #F66F6F; // todo
+            }
 
-        .explore-title {
-            color: #232323;
-            padding: 0 10px;
-            line-height: 30px;
-            border-bottom: 1px solid @border-color;
-            background-color: @background-color;
-        }
+            .explore-title {
+                color: #232323;
+                padding: 0 10px;
+                line-height: 30px;
+                border-bottom: 1px solid @border-color;
+                background-color: @background-color;
+            }
 
-        .explore-content {
-            padding: 5px 10px 10px;
-            background-color: @background-color;
-            color: @content-color;
+            .explore-content {
+                padding: 5px 10px 10px;
+                background-color: @background-color;
+                color: @content-color;
+            }
         }
     }
+    
 
     .select-wrap {
         margin-top: 5px;

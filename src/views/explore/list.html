@@ -16,35 +16,19 @@
         </div>
     </div>
 </div>
-<ul class="row explore">
-    <li class="col-xs-6 explore-item">
-        <img class="explore-img" src="" alt="发现推荐" />
-        <h5 class="explore-title">CSS3赛贝尔曲线动画</h5>
-        <p class="explore-content">妈妈再也不用担心我做 CSS3 动画了。</p>
-    </li>
-    <li class="col-xs-6 explore-item">
-        <img class="explore-img" src="" alt="发现推荐" />
-        <h5 class="explore-title">CSS3赛贝尔曲线动画</h5>
-        <p class="explore-content">妈妈再也不用担心我做 CSS3 动画了。</p>
-    </li>
-    <li class="col-xs-6 explore-item">
-        <img class="explore-img" src="" alt="发现推荐" />
-        <h5 class="explore-title">CSS3赛贝尔曲线动画</h5>
-        <p class="explore-content">妈妈再也不用担心我做 CSS3 动画了。</p>
-    </li>
-    <li class="col-xs-6 explore-item">
-        <img class="explore-img" src="" alt="发现推荐" />
-        <h5 class="explore-title">CSS3赛贝尔曲线动画</h5>
-        <p class="explore-content">妈妈再也不用担心我做 CSS3 动画了。</p>
-    </li>
-    <li class="col-xs-6 explore-item">
-        <img class="explore-img" src="" alt="发现推荐" />
-        <h5 class="explore-title">CSS3赛贝尔曲线动画</h5>
-        <p class="explore-content">妈妈再也不用担心我做 CSS3 动画了。</p>
-    </li>
-    <li class="col-xs-6 explore-item">
-        <img class="explore-img" src="" alt="发现推荐" />
-        <h5 class="explore-title">CSS3赛贝尔曲线动画</h5>
-        <p class="explore-content">妈妈再也不用担心我做 CSS3 动画了。</p>
-    </li>
-</ul>
+<div class="row explore">
+    <ul class="col-xs-6 explore-row">
+        <li class="explore-item" ng-repeat="infoL in leftInfoList track by $index">
+            <img class="explore-img" ng-src="{{infoL.picture}}" alt="发现推荐" />
+            <h5 class="explore-title">{{infoL.title}}</h5>
+            <p class="explore-content">{{infoL.intro}}</p>
+        </li>
+    </ul>
+    <ul class="col-xs-6 explore-row">
+        <li class="explore-item" ng-repeat="infoR in rightInfoList track by $index">
+            <img class="explore-img" ng-src="{{infoR.picture}}" alt="发现推荐" />
+            <h5 class="explore-title">{{infoR.title}}</h5>
+            <p class="explore-content">{{infoR.intro}}</p>
+        </li>
+    </ul>
+</div>

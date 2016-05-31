@@ -17,40 +17,40 @@
     <ui-state id="activeTab" default="1"></ui-state>
     <ul class="nav nav-tabs row skill-tabs">
         <li ui-class="{'active': activeTab == 1}" class="col-xs-3 text-center active">
-            <a ui-set="{'activeTab': 1}">核心技术</a>
+            <a ui-set="{'activeTab': 1}" ng-click="changeTag(0)">核心技术</a>
         </li>
         <li ui-class="{'active': activeTab == 2}" class="col-xs-3 text-center">
-            <a ui-set="{'activeTab': 2}">拓展技术</a>
+            <a ui-set="{'activeTab': 2}" ng-click="changeTag(1)">拓展技术</a>
         </li>
         <li ui-class="{'active': activeTab == 3}" class="col-xs-3 text-center">
-            <a ui-set="{'activeTab': 3}">工程研发</a>
+            <a ui-set="{'activeTab': 3}" ng-click="changeTag(2)">工程研发</a>
         </li>
         <li ui-class="{'active': activeTab == 4}" class="col-xs-3 text-center">
-            <a ui-set="{'activeTab': 4}">编程思想</a>
+            <a ui-set="{'activeTab': 4}" ng-click="changeTag(3)">编程思想</a>
         </li>
     </ul>
     <!-- uiIf: activeTab == 1 -->
     <ul ui-if="activeTab == 1" class="ng-scope skill-content">
-        <li>
-            <i class="icon icon-slash" ui-sref="skill.detail()">HTML</i>
-        </li>
-        <li>
-            <i class="icon icon-line">CSS</i>
-        </li>
-        <li>
-            <i class="icon icon-triangle">JS</i>
+        <li ng-repeat="skill in skillList track by $index">
+            <i class="icon" ui-sref="skill.detail({skill: skill})">{{skill.title}}</i>
         </li>
     </ul>
     <!-- uiIf: activeTab == 2 -->
     <ul ui-if="activeTab == 2" class="ng-scope skill-content">
-        
+        <li ng-repeat="skill in skillList track by $index">
+            <i class="icon" ui-sref="skill.detail({skill: skill})">{{skill.title}}</i>
+        </li>
     </ul>
     <!-- uiIf: activeTab == 3 -->
     <ul ui-if="activeTab == 3" class="ng-scope skill-content">
-        
+        <li ng-repeat="skill in skillList track by $index">
+            <i class="icon" ui-sref="skill.detail({skill: skill})">{{skill.title}}</i>
+        </li>
     </ul>
     <!-- uiIf: activeTab == 4 -->
-    <div ui-if="activeTab == 4" class="ng-scope skill-content">
-        
+    <ul ui-if="activeTab == 4" class="ng-scope skill-content">
+        <li ng-repeat="skill in skillList track by $index">
+            <i class="icon" ui-sref="skill.detail({skill: skill})">{{skill.title}}</i>
+        </li>
     </ul>
 </div>

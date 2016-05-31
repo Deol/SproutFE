@@ -20,9 +20,14 @@ angular.module('Sprout.service', [])
         return $http.post(url, data);
     }
 
-    function setUserInfo(data) {
+    function updateUserInfo(data) {
         var url = baseUrl + '/user/' + data.id;
         return $http.post(url, data);
+    }
+
+    function setUserInfo(data) {
+        sessionStorage.setItem('user_id', data.user_id);
+        sessionStorage.setItem('user', JSON.stringify(data));
     }
 
     function getUserInfo() {
@@ -33,8 +38,39 @@ angular.module('Sprout.service', [])
         login: login,
         logout: logout,
         register: register,
+        updateUserInfo: updateUserInfo,
         setUserInfo: setUserInfo,
         getUserInfo: getUserInfo
+    };
+})
+.service('skillService', function ($http, urlConfig) {
+    var baseUrl = urlConfig.baseUrl;
+
+    function addSkill(data) {
+        var url = baseUrl + '/skill'
+        return $http.post(url, data);
+    }
+
+    function getSkillInfo(data) {
+        var url = baseUrl + '/skill?belong_tag=' + data.belong_tag;
+        return $http.get(url, data);
+    }
+
+    function setSkillInfo(data) {
+        var url = baseUrl + '/skill';
+        return $http.put(url, data);
+    }
+
+    function deleteSkill(data) {
+        var url = baseUrl + '/skill/' + data.id;
+        return $http.delete(url, data);
+    }
+
+    return {
+        addSkill: addSkill,
+        getSkillInfo: getSkillInfo,
+        setNoteInfo: setSkillInfo,
+        deleteSkill: deleteSkill
     };
 })
 .service('noteService', function ($http, urlConfig) {
@@ -46,12 +82,12 @@ angular.module('Sprout.service', [])
     }
 
     function getNoteInfo(data) {
-        var url = baseUrl + '/note' + data.userId;
+        var url = baseUrl + '/note?user_id=' + data.user_id;
         return $http.get(url, data);
     }
 
     function setNoteInfo(data) {
-        var url = baseUrl + '/note' + data.id;
+        var url = baseUrl + '/note/' + data.id;
         return $http.put(url, data);
     }
 
@@ -70,18 +106,21 @@ angular.module('Sprout.service', [])
 .service('exploreService', function ($http, urlConfig) {
     var baseUrl = urlConfig.baseUrl;
 
+    function getExploreInfo(data) {
+        var url = baseUrl + '/explore';
+        if(data.belong_tag) {
+            url += '?belong_tag=' + data.belong_tag;
+        }
+        return $http.get(url, data);
+    }
+
     function addExplore(data) {
         var url = baseUrl + '/explore'
         return $http.post(url, data);
     }
 
-    function getExploreInfo(data) {
-        var url = baseUrl + '/explore' + data.belongTag;
-        return $http.get(url, data);
-    }
-
     function setExploreInfo(data) {
-        var url = baseUrl + '/explore' + data.id;
+        var url = baseUrl + '/explore/' + data.id;
         return $http.put(url, data);
     }
 
@@ -91,8 +130,8 @@ angular.module('Sprout.service', [])
     }
 
     return {
-        addExplore: addExplore,
         getExploreInfo: getExploreInfo,
+        addExplore: addExplore,
         setExploreInfo: setExploreInfo,
         deleteExplore: deleteExplore
     };
@@ -100,18 +139,18 @@ angular.module('Sprout.service', [])
 .service('cultivationService', function ($http, urlConfig) {
     var baseUrl = urlConfig.baseUrl;
 
-    function addCultivation(data) {
-        var url = baseUrl + '/cultivation'
-        return $http.post(url, data);
-    }
-
     function getCultivationInfo(data) {
         var url = baseUrl + '/cultivation';
         return $http.get(url, data);
     }
 
+    function addCultivation(data) {
+        var url = baseUrl + '/cultivation'
+        return $http.post(url, data);
+    }
+
     function setCultivationInfo(data) {
-        var url = baseUrl + '/cultivation' + data.id;
+        var url = baseUrl + '/cultivation/' + data.id;
         return $http.put(url, data);
     }
 
@@ -121,8 +160,8 @@ angular.module('Sprout.service', [])
     }
 
     return {
-        addCultivation: addCultivation,
         getCultivationInfo: getCultivationInfo,
+        addCultivation: addCultivation,
         setCultivationInfo: setCultivationInfo,
         deleteCultivation: deleteCultivation
     };

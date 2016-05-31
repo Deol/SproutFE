@@ -68,20 +68,15 @@ angular.module('Sprout',
             }
         });
 
-        SharedState.initialize($rootScope, 'isLogin');
-        if (sessionStorage.getItem('session_id')) {
-            SharedState.setOne('isLogin', true);
+        $scope.isLogin = false;
+        $scope.userInfo = {};
+
+        if (sessionStorage.getItem('user_id')) {
+            $scope.isLogin = true;
             $scope.userInfo = account.getUserInfo();
         }
-
-        $scope.userInfo = {};
 
         $scope.$on('mobile-angular-ui.state.changed.isLogin', function (event, newValue, oldValue) {
             $scope.userInfo = newValue ? account.getUserInfo() : {};
         });
-
-        $scope.signout = function () {
-            SharedState.setOne('isLogin', false);
-            account.deleteUser();
-        }
     })
