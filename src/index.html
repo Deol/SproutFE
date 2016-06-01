@@ -25,10 +25,11 @@
             <div class="scrollable-content">
                 <div class="list-group" ui-turn-off='uiSidebarLeft'>
                     <a class="list-group-item" href="#/skill/list">技能树</a>
-                    <a class="list-group-item" href="#/note/list">便签</a>
+                    <a class="list-group-item" href="#/note/list" ng-if="isLogin">便签</a>
                     <a class="list-group-item" href="#/cultivation/list">自我修养</a>
                     <a class="list-group-item" href="#/explore/list">发现推荐</a>
                     <a class="list-group-item" href="#/user/detail" ng-if="isLogin">个人资料</a>
+                    <a class="list-group-item logout" ng-click="logout()" ng-if="isLogin">退出登录</a>
                 </div>
             </div>
         </div>

@@ -11,65 +11,100 @@
         <div class="navbar-brand">
             <span class="ng-scope">个人资料</span>
         </div>
-        <div class="btn-group pull-right">
+        <div class="btn-group pull-right" ng-hide="isEdit">
             <div class="btn sidebar-toggle">
-                <i class="fa fa-pencil-square-o"></i>
+                <i class="fa fa-pencil-square-o" ng-click="isEdit = 1"></i>
             </div>
+        </div>
+        <div class="btn-group pull-right" ng-show="isEdit">
+            <span ng-click="isEdit = 0">取消</span>
         </div>
     </div>
 </div>
 <div class="user">
-    <ul class="list-group user-info">
+    <ul class="list-group user-info" ng-hide="isEdit">
         <li class="list-group-item avatar">
             <img src="assets/images/avatar.jpg" alt="头像">
         </li>
         <li class="list-group-item">
             <span class="item-name">昵称：</span>
-            <p class="item-info text-right">Aeo</p>
+            <p class="item-info text-right">{{userInfo.nick_name || '无'}}</p>
+        </li>
+        <li class="list-group-item">
+            <span class="item-name">电话：</span>
+            <p class="item-info text-right">{{userInfo.phone || '无'}}</p>
         </li>
         <li class="list-group-item">
             <span class="item-name">学校：</span>
-            <p class="item-info text-right">广东工业大学</p>
+            <p class="item-info text-right">{{userInfo.school || '无'}}</p>
         </li>
         <li class="list-group-item">
             <span class="item-name">性别：</span>
-            <p class="item-info text-right">男</p>
+            <p class="item-info text-right">{{userSex || '未知'}}</p>
         </li>
         <li class="list-group-item">
             <span class="item-name">目标：</span>
-            <p class="item-info text-right">吃吃喝喝玩玩睡睡。</p>
+            <p class="item-info text-right">{{userInfo.purpose || '设定你的目标吧！'}}</p>
         </li>
         <li class="list-group-item reset-area">
-            <button class="btn reset-btn">修改密码</button>
+            <button class="btn reset-btn" ng-click="toggleModal(1)">修改密码</button>
+        </li>
+    </ul>
+    <ul class="list-group edit-info" ng-show="isEdit">
+        <li class="list-group-item avatar">
+            <img src="assets/images/avatar.jpg" alt="头像">
+        </li>
+        <li class="list-group-item">
+            <span class="item-name">昵称：</span>
+            <input class="item-info text-right" ng-model="userInfo.nick_name"/>
+        </li>
+        <li class="list-group-item">
+            <span class="item-name">电话：</span>
+            <input class="item-info text-right" ng-model="userInfo.phone"/>
+        </li>
+        <li class="list-group-item">
+            <span class="item-name">学校：</span>
+            <input class="item-info text-right" ng-model="userInfo.school"/>
+        </li>
+        <li class="list-group-item">
+            <span class="item-name">性别：</span>
+            <input class="item-info text-right" ng-model="userInfo.sex" placeholder="男为1，女为2" />
+        </li>
+        <li class="list-group-item">
+            <span class="item-name">目标：</span>
+            <input class="item-info text-right" ng-model="userInfo.purpose"/>
+        </li>
+        <li class="list-group-item reset-area">
+            <button class="btn reset-btn" ng-click="editInfo()">完成修改</button>
         </li>
     </ul>
 </div>
-<!-- <div ui-content-for="modals">
-    <div class="modal">
+<div ui-content-for="modals">
+    <div class="modal" ng-if="showModal">
         <div class="modal-backdrop in"></div>
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button class="close">&times;</button>
+                    <button class="close" ng-click="toggleModal(0)">&times;</button>
                     <h4 class="modal-title">修改密码</h4>
                 </div>
                 <div class="modal-body">
                     <form role="form">
                         <fieldset>
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="密码">
+                                <input type="password" ng-model="passwdInfo.passwd" class="form-control" placeholder="密码">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="确认密码">
+                                <input type="password" ng-model="passwdInfo.confirmPasswd" class="form-control" placeholder="确认密码">
                             </div>
                         </fieldset>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-default">取消</button>
-                    <button class="btn btn-primary">保存</button>
+                    <button class="btn btn-primary" ng-click="toggleModal(0)">取消</button>
+                    <button class="btn btn-primary" ng-click="resetPasswd(0)">保存</button>
                 </div>
             </div>
         </div>
     </div>
-</div> -->
+</div>

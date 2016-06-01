@@ -48,7 +48,7 @@ angular.module('Sprout',
     .config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/skill/list');
     })
-    .controller('mainController', function ($rootScope, $scope, SharedState, pageState, account) {
+    .controller('mainController', function ($rootScope, $scope, $state, SharedState, pageState, account) {
 
         $rootScope.$on('$stateChangeStart', function (event, to, toParams, from, fromParams) {
             $rootScope.loading = true;
@@ -71,10 +71,29 @@ angular.module('Sprout',
         $scope.isLogin = false;
         $scope.userInfo = {};
 
+        $scope.logout = function () {
+            $scope.isLogin = false;
+            account.logout().then(function (res) {
+                if (res.data.code === 1) {
+                    alert('退出成功！');
+                }
+            });
+            sessionStorage.removeItem('user_id');
+            sessionStorage.removeItem('user');
+            $state.go('skill.list');
+        }
+
         if (sessionStorage.getItem('user_id')) {
             $scope.isLogin = true;
             $scope.userInfo = account.getUserInfo();
         }
+
+        $scope.$on('loginState', function(e, newInfo) {
+            if (sessionStorage.getItem('user_id')) {
+                $scope.isLogin = true;
+                $scope.userInfo = newInfo;
+            }
+        });
 
         $scope.$on('mobile-angular-ui.state.changed.isLogin', function (event, newValue, oldValue) {
             $scope.userInfo = newValue ? account.getUserInfo() : {};

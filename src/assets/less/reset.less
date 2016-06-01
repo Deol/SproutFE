@@ -105,6 +105,7 @@ i { color: #fff; }
     }
 
     .scrollable-content {
+        position: relative;
 
         a {
             border: 0;
@@ -122,6 +123,16 @@ i { color: #fff; }
             padding-left: 11px;
             background-color: transparent;
             border-left: 4px solid #6CBB4E;
+        }
+
+        .logout {
+            position: absolute;
+            bottom: 0;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 }

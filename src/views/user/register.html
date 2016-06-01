@@ -18,18 +18,22 @@
         <fieldset>
             <div class="form-group">
                 <label>手机</label>
-                <input type="phone" class="form-control" placeholder="手机">
+                <input type="phone" class="form-control" placeholder="手机" ng-model="userInfo.phone">
+            </div>
+            <div class="form-group">
+                <label>昵称</label>
+                <input type="text" class="form-control" placeholder="昵称" ng-model="userInfo.nick_name">
             </div>
             <div class="form-group">
                 <label>密码</label>
-                <input type="password" class="form-control" placeholder="密码">
+                <input type="password" class="form-control" placeholder="密码" ng-model="userInfo.passwd">
             </div>
             <div class="form-group">
                 <label>确认密码</label>
-                <input type="password" class="form-control" placeholder="确认密码">
+                <input type="password" class="form-control" placeholder="确认密码" ng-model="userInfo.confirm_passwd">
             </div>
         </fieldset>
         <hr>
-        <button class="btn btn-success btn-block">登录</button>
+        <button class="btn btn-success btn-block" ng-click="register()">注册</button>
     </form>
 </div>

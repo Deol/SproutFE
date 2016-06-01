@@ -12,7 +12,7 @@ angular.module('Sprout.service', [])
 
     function logout(data) {
         var url = baseUrl + '/user/logout'
-        return $http.post(url, data);
+        return $http.get(url, data);
     }
 
     function register(data) {
@@ -22,7 +22,7 @@ angular.module('Sprout.service', [])
 
     function updateUserInfo(data) {
         var url = baseUrl + '/user/' + data.id;
-        return $http.post(url, data);
+        return $http.put(url, data);
     }
 
     function setUserInfo(data) {
