@@ -8,7 +8,7 @@ var uglify = require('gulp-uglify');
 var usemin = require('gulp-usemin');
 var rev = require('gulp-rev');
 var gulpif = require('gulp-if');
-var sprity = require('sprity');
+/*var sprity = require('sprity');*/
 var sourcemaps = require('gulp-sourcemaps');
 var lessAutoprefix = require('less-plugin-autoprefix');
 var autoprefix = new lessAutoprefix({browsers: ['last 2 versions'], cascade: false});
@@ -36,7 +36,7 @@ gulp.task('connect:build', function () {
 })
 
 // 合成雪碧图
-gulp.task('merge', function () {
+/*gulp.task('merge', function () {
   return sprity.src({
     src: './src/assets/images/chips/*@2x.{png,jpg}',
     style: './sprite.css',
@@ -47,7 +47,7 @@ gulp.task('merge', function () {
     }]
   })
   .pipe(gulpif('*.png', gulp.dest('./src/assets/images/'), gulp.dest('./src/assets/css/')))
-});
+});*/
 
 // 编译 less
 gulp.task('less', function () {
